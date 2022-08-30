@@ -12,8 +12,8 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: echo Hello ${{ inputs.who-to-greet }}.
-      shell: bash
+#     - run: echo Hello ${{ inputs.who-to-greet }}.
+#       shell: bash
     - name: Hello World!
       uses: guan-kevin/javascript-action@v5
       with:
