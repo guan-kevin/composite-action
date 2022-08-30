@@ -37,5 +37,5 @@ runs:
       shell: python
       env:
         LOCAL: Random Env
-    - run: pwd && ls && goodbye.sh
+    - run: pwd && ls
       shell: bash
