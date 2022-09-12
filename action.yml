@@ -50,10 +50,10 @@ runs:
     - name: Python 3
       run: |
         import os
-        print('TEST: {} and DEBUG: {} and LOCAL: {}'.format(os.getenv('TEST'), os.getenv('DEBUG'), os.getenv('LOCAL')))
-        print('TEST: {} and DEBUG: {} and LOCAL: {}'.format("${{ env.TEST }}", "${{ env.DEBUG }}", "${{ env.LOCAL }}"))
+        print('Workflow: {} and Job: {} and Step: {} and Local: {}'.format(os.getenv('WorkflowEnv'), os.getenv('JobEnv'), os.getenv('StepEnv'), os.getenv('LocalEnv')))
+        print('Workflow: {} and Job: {} and Step: {} and Local: {}'.format("${{ env.WorkflowEnv }}", "${{ env.JobEnv }}", "${{ env.StepEnv }}", "${{ env.LocalEnv }}"))
       shell: python
       env:
-        LOCAL: Random Env
+        LocalEnv: Local Step Level
     - run: pwd && ls
       shell: bash
