@@ -28,12 +28,30 @@ runs:
     - id: print-random-number-generator
       run: echo "Random number is $RANDOM"
       shell: bash
-#     - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
-#       shell: bash
+    - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      shell: bash
+    - run: goodbye.sh
+      shell: bash
+    - run: |
+        echo "actor: ${{ github.actor }}"
+        echo "ref: ${{ github.ref }}"
+        echo "triggering_actor: ${{ github.triggering_actor }}"
+        echo "workflow: ${{ github.workflow }}"
+        echo "head_ref: ${{ github.head_ref }}"
+        echo "base_ref: ${{ github.base_ref }}"
+        echo "event_name: ${{ github.event_name }}"
+        echo "action: ${{ github.action }}"
+        echo "action_repository: ${{ github.action_repository }}"
+        echo "action_ref: ${{ github.action_ref }}"
+        echo "action_path: ${{ github.action_path }}"
+        echo "action_status: ${{ github.action_status }}"
+        echo "workspace: ${{ github.workspace }}"
+       shell: bash
     - name: Python 3
       run: |
         import os
         print('TEST: {} and DEBUG: {} and LOCAL: {}'.format(os.getenv('TEST'), os.getenv('DEBUG'), os.getenv('LOCAL')))
+        print('TEST: {} and DEBUG: {} and LOCAL: {}'.format("${{ env.TEST }}", "${{ env.DEBUG }}", "${{ env.LOCAL }}"))
       shell: python
       env:
         LOCAL: Random Env
