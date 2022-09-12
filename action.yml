@@ -46,7 +46,7 @@ runs:
         echo "action_path: ${{ github.action_path }}"
         echo "action_status: ${{ github.action_status }}"
         echo "workspace: ${{ github.workspace }}"
-       shell: bash
+      shell: bash
     - name: Python 3
       run: |
         import os
